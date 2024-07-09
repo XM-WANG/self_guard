@@ -1,7 +1,7 @@
 # SELF-GUARD: Empower the LLM to Safeguard Itself (In development)
 
 ### Checklist:
-
+We will not release the data containing harmful content. The following is a checklist of the content that will be made public:
 - [ ] Guidelines for constructing stage 1 training data.
 - [ ] Guidelines for constructing stage 2 training data.
 - [ ] Checkpoints of the model trained using the self-guard strategy.
