@@ -17,13 +17,13 @@ class Item(BaseModel):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_path", type=str)
+    parser.add_argument("--model", type=str)
     parser.add_argument("--host", type=str, default="0.0.0.0")
     parser.add_argument("--port", type=int, default=1155)
     args = parser.parse_args()
 
     app = FastAPI()
-    @app.post("/v1/")
+    @app.post("/llm_service/")
     def generate(payload: Item):
         results = model(
             payload.prompt,
@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
     model = pipeline(
         "text-generation", 
-        model=args.model_path, 
+        model=args.model, 
         device_map="auto", 
         torch_dtype=torch.float16,
         # attn_implementation="flash_attention_2"
